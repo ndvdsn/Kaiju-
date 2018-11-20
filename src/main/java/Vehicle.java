@@ -38,4 +38,17 @@ public abstract class Vehicle implements IAttack, IDamage {
     public void setAttackValue(int attackValue) {
         this.attackValue = attackValue;
     }
+
+    public int attack(IDamage thing){
+        int damage = this.getAttackValue();
+        thing.takeDamage(damage);
+        return damage;
+    }
+
+    public int takeDamage(int damage){
+        int healthValue = this.getHealthValue();
+        this.setHealthValue(healthValue -= damage);
+        return healthValue;
+
+    }
 }

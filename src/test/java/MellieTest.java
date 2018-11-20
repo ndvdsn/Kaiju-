@@ -21,7 +21,7 @@ public class MellieTest {
 
     @Test
     public void hasHealthValue(){
-        assertEquals(10, mellie.getHealthValue());
+        assertEquals(20, mellie.getHealthValue());
     }
 
     @Test
@@ -45,5 +45,10 @@ public class MellieTest {
     public void canTakeDamage(){
         mellie.takeDamage(tank.getAttackValue());
         assertEquals(7, mellie.getHealthValue());
+    }
+
+    @Test
+    public void canFly(){
+        assertEquals("I'm flying", mellie.fly("flying"));
     }
 }

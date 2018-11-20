@@ -1,3 +1,5 @@
+import Behaviours.IDamage;
+
 public abstract class Kaiju {
 
     private String name;
@@ -13,6 +15,10 @@ public abstract class Kaiju {
     public String roar(){
         return "Roar";
     }
+
+//    public String fly(){
+//        return "flying";
+//    }
 
     public String getName() {
         return name;
@@ -36,5 +42,18 @@ public abstract class Kaiju {
 
     public void setHealthValue(int healthValue) {
         this.healthValue = healthValue;
+    }
+
+    public int attack(IDamage thing){
+        int damage = this.getAttackValue();
+        thing.takeDamage(damage);
+        return damage;
+    }
+
+    public int takeDamage(int damage){
+        int healthValue = this.getHealthValue();
+        this.setHealthValue(healthValue -= damage);
+        return healthValue;
+
     }
 }
